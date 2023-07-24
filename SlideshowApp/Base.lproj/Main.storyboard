@@ -1,24 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カルデア人の天体時間の数え方" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYC-cd-mDl">
+                                <rect key="frame" x="75.333333333333329" y="144" width="242.66666666666669" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JG6-T1-hUy">
+                                <rect key="frame" x="96.666666666666686" y="249.33333333333337" width="200" height="200"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="6JU-W4-OXh"/>
+                                    <constraint firstAttribute="height" constant="200" id="wSj-M8-Ijm"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XpW-TG-kNv" appends="YES" id="cVd-Hf-p4m"/>
+                                </connections>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XN5-OV-wfC">
+                                <rect key="frame" x="103.66666666666669" y="539.66666666666663" width="186" height="34.333333333333371"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4x-Xs-zML">
+                                        <rect key="frame" x="0.0" y="0.0" width="58.666666666666664" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="戻る"/>
+                                        <connections>
+                                            <action selector="BackImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AHu-nX-tCF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOu-hA-imB">
+                                        <rect key="frame" x="63.666666666666671" y="0.0" width="58.666666666666671" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="再生"/>
+                                        <connections>
+                                            <action selector="PlayStopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qg2-gY-Vex"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bI-ru-YpF">
+                                        <rect key="frame" x="127.33333333333333" y="0.0" width="58.666666666666671" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="進む"/>
+                                        <connections>
+                                            <action selector="ForwardImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PDh-9H-gsr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlanetTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rei-I8-Ncn">
+                                <rect key="frame" x="154" y="454.33333333333331" width="85" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Images quoted from NASA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-iF-whT">
+                                <rect key="frame" x="95.333333333333329" y="659" width="202.33333333333337" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Hr8-iF-whT" firstAttribute="top" secondItem="XN5-OV-wfC" secondAttribute="bottom" constant="85" id="0es-Td-ih0"/>
+                            <constraint firstItem="rei-I8-Ncn" firstAttribute="top" secondItem="JG6-T1-hUy" secondAttribute="bottom" constant="5" id="6bN-E9-N9a"/>
+                            <constraint firstItem="rei-I8-Ncn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9sy-Ic-5XQ"/>
+                            <constraint firstItem="Hr8-iF-whT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hej-BN-5Ll"/>
+                            <constraint firstItem="XN5-OV-wfC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NkS-xy-IWl"/>
+                            <constraint firstItem="jYC-cd-mDl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="85" id="V8L-bx-wQt"/>
+                            <constraint firstItem="JG6-T1-hUy" firstAttribute="top" secondItem="jYC-cd-mDl" secondAttribute="bottom" constant="85" id="YXm-5e-8Bb"/>
+                            <constraint firstItem="JG6-T1-hUy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bln-e6-JLC"/>
+                            <constraint firstItem="XN5-OV-wfC" firstAttribute="top" secondItem="rei-I8-Ncn" secondAttribute="bottom" constant="65" id="mo8-Pn-jT5"/>
+                            <constraint firstItem="jYC-cd-mDl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nZn-4n-2q6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="BackImage" destination="F4x-Xs-zML" id="ABZ-Uq-7Fv"/>
+                        <outlet property="ForwardImage" destination="2bI-ru-YpF" id="A2t-cw-dxZ"/>
+                        <outlet property="Label01" destination="jYC-cd-mDl" id="n0o-tM-Mxx"/>
+                        <outlet property="PlanetImageView" destination="JG6-T1-hUy" id="fqm-rE-51x"/>
+                        <outlet property="PlanetTime" destination="rei-I8-Ncn" id="BlU-AP-md3"/>
+                        <outlet property="PlayStopButton" destination="vOu-hA-imB" id="PHA-sX-2Fa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XpW-TG-kNv">
+                    <connections>
+                        <segue destination="9sj-m2-zoF" kind="show" id="XSK-Fa-SQl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
+        </scene>
+        <!--Enlarge View Controller-->
+        <scene sceneID="Ibc-bk-268">
+            <objects>
+                <viewController id="9sj-m2-zoF" customClass="EnlargeViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="faL-IP-b5t">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rw-MF-uOD">
+                                <rect key="frame" x="167" y="509" width="59" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
+                                <connections>
+                                    <segue destination="FUw-2c-MpT" kind="unwind" unwindAction="unwind:" id="OEm-9U-Z4c"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Images quoted from NASA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnn-eY-Fx3">
+                                <rect key="frame" x="95" y="644" width="203" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A8d-Br-qPM">
+                                <rect key="frame" x="36.666666666666657" y="89" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="XLj-74-8Zc"/>
+                                    <constraint firstAttribute="height" constant="320" id="ijj-eR-InS"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hdy-bt-HFH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Rw-MF-uOD" firstAttribute="centerX" secondItem="faL-IP-b5t" secondAttribute="centerX" id="2m2-lS-GNK"/>
+                            <constraint firstItem="Vnn-eY-Fx3" firstAttribute="centerX" secondItem="faL-IP-b5t" secondAttribute="centerX" id="9F2-Iy-zpZ"/>
+                            <constraint firstItem="A8d-Br-qPM" firstAttribute="centerX" secondItem="faL-IP-b5t" secondAttribute="centerX" id="9vk-yB-0s1"/>
+                            <constraint firstItem="A8d-Br-qPM" firstAttribute="top" secondItem="hdy-bt-HFH" secondAttribute="top" constant="30" id="Bhf-WK-bhP"/>
+                            <constraint firstItem="5Rw-MF-uOD" firstAttribute="top" secondItem="A8d-Br-qPM" secondAttribute="bottom" constant="100" id="mTW-fC-abw"/>
+                            <constraint firstItem="Vnn-eY-Fx3" firstAttribute="top" secondItem="5Rw-MF-uOD" secondAttribute="bottom" constant="100" id="vbL-lg-jpc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ROS-b1-72a"/>
+                    <connections>
+                        <outlet property="EnlargePlanetImageView" destination="A8d-Br-qPM" id="Tlc-0O-hSF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tYt-Cw-Czj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="FUw-2c-MpT" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="820.61068702290072" y="-35.211267605633807"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
