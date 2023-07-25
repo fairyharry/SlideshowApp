@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     // スライドショーに使用するタイマーの宣言
     var timer: Timer!
     
+    // タイマーが再生中に画面遷移したか否かを判定する変数の宣言
+    var TimerRunning = 0
+    
     // PlanetImageView に表示させる画像の配列を宣言
     var PlanetImageArray:[UIImage] = [
         UIImage(named: "saturn")!,
@@ -63,7 +66,7 @@ class ViewController: UIViewController {
     // 戻るボタンのIBActionの設定
     @IBAction func BackImage(_ sender: Any) {
         // 戻るボタンを押すと1つ前の画像を表示
-        if PlanetChangeImgNo == 0 {
+        if (PlanetChangeImgNo == 0) {
             PlanetChangeImgNo = 6
         } else {
             PlanetChangeImgNo -= 1
@@ -75,7 +78,7 @@ class ViewController: UIViewController {
     // 進むボタンのIBActionの設定
     @IBAction func ForwardImage(_ sender: Any) {
         // 進むボタンを押すと1つ先の画像を表示
-        if PlanetChangeImgNo == 6 {
+        if (PlanetChangeImgNo == 6) {
             PlanetChangeImgNo = 0
         } else {
             PlanetChangeImgNo += 1
@@ -91,6 +94,8 @@ class ViewController: UIViewController {
             // 再生時の処理を設定
             // タイマーをセットする
             timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChangeImage), userInfo: nil, repeats: true)
+            // タイマーが再生中である旨の変数の設定
+            TimerRunning = 1
             // ボタンの名前を停止に変更する
             PlayStopButton.setTitle("停止", for: .normal)
             // 戻るボタンと進むボタンを無効化する
@@ -102,6 +107,8 @@ class ViewController: UIViewController {
             timer.invalidate()
             // タイマーを削除しておく
             timer = nil
+            // タイマーが停止している旨の変数の設定
+            TimerRunning = 0
             // ボタンの名前を再生に変更する
             PlayStopButton.setTitle("再生", for: .normal)
             // 戻るボタンと進むボタンを有効化する
@@ -112,6 +119,13 @@ class ViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 画面遷移の際に再生中の場合に、タイマーを一旦中断する旨の設定
+        if (TimerRunning == 1) {
+            // タイマーを停止する
+            timer.invalidate()
+            // タイマーを削除しておく
+            timer = nil
+        }
         // segueから遷移先のEnlargeViewControllerを取得する
         let EnlargeViewController:EnlargeViewController = segue.destination as! EnlargeViewController
         // 遷移先のEnlargeViewControllerで宣言しているimageの情報を渡す
@@ -120,6 +134,11 @@ class ViewController: UIViewController {
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         // 他の画面から segue を使って戻ってきた時に呼ばれる
+        // 画面遷移の際に再生中だった場合に、タイマーの再生を再開する旨の設定
+        if (TimerRunning == 1) {
+            // タイマーをセットする
+            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChangeImage), userInfo: nil, repeats: true)
+        }
     }
 
     
